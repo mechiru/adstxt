@@ -1,0 +1,29 @@
+[package]
+name = "adstxt"
+version = "0.1.0"
+authors = ["mechiru <u9053u6d41@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "This library provides a parser for ads.txt."
+repository = "https://github.com/mechiru/adstxt"
+documentation = "https://docs.rs/adstxt"
+categories = ["parser-implementations"]
+keywords = ["iab", "ads.txt"]
+readme = "../README.md"
+
+[features]
+default = ["parser"]
+parser = []
+crawler = [
+  "log",
+  "hyper",
+  "hyper-tls",
+  "tokio",
+]
+
+[dependencies]
+thiserror = { version = "1.0" }
+log = { version = "0.4", optional = true }
+hyper = { version = "0.13", optional = true }
+hyper-tls = { version = "0.4.3", optional = true }
+tokio = { version = "0.2", features = ["rt-core", "macros"], optional = true }

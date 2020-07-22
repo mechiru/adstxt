@@ -1,0 +1,11 @@
+[package]
+name = "adstxt-cli"
+version = "0.1.0"
+authors = ["mechiru <u9053u6d41@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+adstxt = { path = "./../adstxt", default-features = false, features = ["crawler"] }
+loggerv = { version = "0.7" }
+structopt = { version = "0.3" }
+tokio = { version = "0.2", features = ["rt-threaded", "macros"] }
