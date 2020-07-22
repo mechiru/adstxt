@@ -11,6 +11,9 @@ categories = ["parser-implementations"]
 keywords = ["iab", "adstxt"]
 readme = "../README.md"
 
+[package.metadata.docs.rs]
+all-features = true
+
 [features]
 default = ["parser"]
 parser = []
