@@ -53,7 +53,7 @@ async fn main() {
             }
 
             let file = fs::read_to_string(file).unwrap();
-            let iter = file.lines().into_iter();
+            let iter = file.lines();
             let domains = if let Some(limit) = limit {
                 iter.take(limit).map(ToOwned::to_owned).collect()
             } else {

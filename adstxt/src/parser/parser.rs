@@ -231,7 +231,7 @@ fn test_parse() {
     ]);
 }
 
-fn row<'a>(s: &'a str) -> Row<'a> {
+fn row(s: &str) -> Row<'_> {
     match s {
         "" => Row::Blank,
         s => {
@@ -278,7 +278,7 @@ fn test_row() {
 }
 
 #[inline]
-fn comment<'a>(s: &'a str) -> Option<&'a str> {
+fn comment(s: &str) -> Option<&str> {
     if s.starts_with('#') {
         Some(s.split_at(1).1.trim())
     } else {
@@ -358,7 +358,7 @@ fn test_record() {
 }
 
 #[inline]
-fn fields<'a>(s: &'a str) -> Option<(&'a str, &'a str, &'a str, Option<&'a str>)> {
+fn fields(s: &str) -> Option<(&str, &str, &str, Option<&str>)> {
     let mut fields = s.split(',');
 
     let f1 = fields.next()?.trim();
@@ -397,7 +397,7 @@ fn test_relation() {
 }
 
 #[inline]
-fn variable<'a>(s: &'a str) -> Option<Variable<'a>> {
+fn variable(s: &str) -> Option<Variable<'_>> {
     if !s.starts_with('#') {
         if let Some(index) = char_at('=', s) {
             if index == 0 {
@@ -432,12 +432,12 @@ fn test_variable() {
 #[inline]
 fn char_at(a: char, s: &str) -> Option<usize> {
     let a = a as u8;
-    for (index, &byte) in s.as_bytes().into_iter().enumerate() {
+    for (index, &byte) in s.as_bytes().iter().enumerate() {
         if byte == a {
             return Some(index);
         }
     }
-    return None;
+    None
 }
 
 #[test]
