@@ -231,6 +231,7 @@ fn test_parse() {
     ]);
 }
 
+#[inline]
 fn row(s: &str) -> Row<'_> {
     match s {
         "" => Row::Blank,
