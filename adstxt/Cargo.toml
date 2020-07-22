@@ -8,7 +8,7 @@ description = "This library provides a parser for ads.txt."
 repository = "https://github.com/mechiru/adstxt"
 documentation = "https://docs.rs/adstxt"
 categories = ["parser-implementations"]
-keywords = ["iab", "ads.txt"]
+keywords = ["iab", "adstxt"]
 readme = "../README.md"
 
 [features]
