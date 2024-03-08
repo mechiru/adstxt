@@ -9,29 +9,27 @@ This library provides a parser for [ads.txt v1.0.2](https://iabtechlab.com/wp-co
 ## Example
 
 ```rust
-# use adstxt::parser::*;
-# use std::collections::HashMap;
+# use adstxt::*;
+
 assert_eq!(
-    parse_adstxt(
+    AdsTxt::parse(
         "# comment
-placeholder.example.com, placeholder, DIRECT, placeholder
+placeholder.example.com, placeholder, DIRECT, placeholder # Comment
 contact=adops@example.com
 
 unknown"
-    )
-    .unwrap(),
+    ),
     AdsTxt {
-        records: vec![Record {
-            domain: "placeholder.example.com",
-            account_id: "placeholder",
-            relation: Relation::Direct,
-            authority_id: Some("placeholder"),
-        }],
-        variables: {
-            let mut map = HashMap::new();
-            map.insert("contact", vec!["adops@example.com"]);
-            map
-        },
+        records: vec![(
+            Record {
+                domain: "placeholder.example.com",
+                account_id: "placeholder",
+                relation: Relation::Direct,
+                authority_id: Some("placeholder"),
+            },
+            None
+        )],
+        variables: vec![(Variable { name: "contact", value: "adops@example.com" }, None)],
     }
 );
 ```
