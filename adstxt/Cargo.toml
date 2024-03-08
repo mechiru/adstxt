@@ -2,7 +2,7 @@
 name = "adstxt"
 version = "0.1.0"
 authors = ["mechiru <u9053u6d41@gmail.com>"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "This library provides a parser for ads.txt."
 repository = "https://github.com/mechiru/adstxt"
