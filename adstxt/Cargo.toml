@@ -15,18 +15,5 @@ readme = "../README.md"
 all-features = true
 
 [features]
-default = ["parser"]
-parser = []
-crawler = [
-  "log",
-  "hyper",
-  "hyper-tls",
-  "tokio",
-]
+default = []
 
-[dependencies]
-thiserror = { version = "1.0" }
-log = { version = "0.4", optional = true }
-hyper = { version = "0.13", optional = true }
-hyper-tls = { version = "0.4.3", optional = true }
-tokio = { version = "0.2", features = ["rt-core", "macros"], optional = true }
